@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tommo
@@ -11,6 +12,22 @@
     <title>Hello</title>
 </head>
 <body>
-Welcome
+<table>
+    <tr>
+        <th>Id.</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Avaliable</th>
+    </tr>
+    <c:forEach items="${sessionScope.tools}" var="tools" varStatus="loop">
+        <tr>
+            <td>${tools.id}</td>
+            <td>${tools.name}</td>
+            <td>${tools.type}</td>
+            <td>${tools.avaliable}</td>
+        </tr>
+    </c:forEach>
+
+</table>
 </body>
 </html>
