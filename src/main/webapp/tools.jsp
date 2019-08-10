@@ -25,15 +25,6 @@
     }
 </style>
 
-
-
-
-<style>
-    table, th, td {
-        border: 1px solid black;
-    }
-</style>
-
 <body>
 
 <table>
@@ -51,8 +42,9 @@
             <td>${tool.type}</td>
             <td class="${tool.available ? 'green' : 'red'}"></td>
             <td>
-                <form>
-                <input type="submit" value="${tool.available ? 'Take' : 'Return'}">
+                <form method="post">
+                    <input type="hidden" value="${tool.available ? 'take' : 'return'}" name="action">
+                    <input type="submit" value="${tool.available ? 'Take' : 'Return'}">
                 </form>
             </td>
         </tr>

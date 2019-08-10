@@ -20,7 +20,22 @@ public class ToolsServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/tools.jsp").forward(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        switch (action){
+            case "take":
+                toolService.setAvailability(false);
+                break;
+            case "return":
+                toolService.setAvailability(true);
+                break;
+        }
+
+
+        request.setAttribute("tools", toolService.getAllTools());
+        getServletContext().getRequestDispatcher("/tools.jsp").forward(request, response);
 
 
     }
