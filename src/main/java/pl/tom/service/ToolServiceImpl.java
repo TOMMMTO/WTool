@@ -16,6 +16,7 @@ public class ToolServiceImpl implements ToolService {
     }
 
     @Override
-    public void setAvailability(boolean isAvailable) {
+    public void setAvailability(boolean isAvailable, long id) {
+        toolDao.setAvailability(isAvailable, id);
     }
 }

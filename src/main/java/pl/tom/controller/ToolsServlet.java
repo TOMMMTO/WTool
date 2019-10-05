@@ -23,19 +23,18 @@ public class ToolsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        long id = Long.parseLong(request.getParameter("id"));
 
         switch (action){
             case "take":
-                toolService.setAvailability(false);
+                toolService.setAvailability(false, id);
                 break;
             case "return":
-                toolService.setAvailability(true);
+                toolService.setAvailability(true, id );
                 break;
         }
 
-
-        request.setAttribute("tools", toolService.getAllTools());
-        getServletContext().getRequestDispatcher("/tools.jsp").forward(request, response);
+        response.sendRedirect(getServletContext().getContextPath() + "/");
 
 
     }

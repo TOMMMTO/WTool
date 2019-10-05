@@ -17,9 +17,18 @@
     table, th, td {
         border: 1px solid black;
     }
+
+    form {
+        margin: 0;
+    }
+    input {
+        width: 100%;
+    }
+
     .red {
         background-color: red;
     }
+
     .green {
         background-color: green;
     }
@@ -43,7 +52,8 @@
             <td class="${tool.available ? 'green' : 'red'}"></td>
             <td>
                 <form method="post">
-                    <input type="hidden" value="${tool.available ? 'take' : 'return'}" name="action">
+                    <input type="hidden" name="id" value="${tool.id}">
+                    <input type="hidden" name="action" value="${tool.available ? 'take' : 'return'}">
                     <input type="submit" value="${tool.available ? 'Take' : 'Return'}">
                 </form>
             </td>
